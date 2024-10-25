@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chicken Crisper® Combos</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Added -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!--  -->
   </head>
   <body>
     <!-- Navbar -->
     <header class="navbar">
-      <div class="logo">Restaurant Logo</div>
+      <div>
+        <img class="logo" src="./Images/logo.jpg" alt="" />
+      </div>
       <nav>
         <ul>
           <li><a href="#">Menu</a></li>
@@ -19,8 +30,110 @@
           <li><a href="#">Log In</a></li>
         </ul>
       </nav>
+      <!-- cart -->
+      <div class="profile">
+        <div class="cart-icon-container">
+          <img id="menu-cart" src="./images/cart.png" alt="" />
+          <h2 id="cart-count">0</h2>
+        </div>
+      </div>
+      <!--  -->
       <button class="order-now">Order Now</button>
     </header>
+
+    <!-- Main Content -->
+    <main>
+      <h1 class="text-center text-3xl mt-3">CHICKEN CRISPER® COMBOS</h1>
+      <p class="text-center mt-3">
+        Find everything from our Big Mouth Burgers®, our always sizzling,
+        Full-on Fajitas and our famous Chicken Crispers®
+      </p>
+
+      <!-- Product Grid -->
+      <section class="product-grid">
+        <div class="product-card">
+          <div class="badge">New</div>
+          <img
+            src="./Images/pic1.jpg"
+            alt="Chicken Fajitas"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h3 class="product-title">Chicken</h3>
+            <p class="price">6.95$ each</p>
+            <p class="description">
+              Chicken Fajitas served with rice and beans, tortillas, guacamole,
+              salsa, and sour cream.
+            </p>
+            <button class="add-to-order">Add to Order</button>
+            <button class="customize">Customize</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="badge">New</div>
+          <img
+            src="./Images/pic2.jpg"
+            alt="Chicken Fajitas"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h3>Fajitas</h3>
+            <p class="price">10.95$</p>
+            <p class="description">
+              Chicken Fajitas served with rice and beans, tortillas, guacamole,
+              salsa, and sour cream.
+            </p>
+            <button class="add-to-order">Add to Order</button>
+            <button class="customize">Customize</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="badge">New</div>
+          <img
+            src="./Images/pic3.jpg"
+            alt="Chicken Fajitas"
+            class="product-image"
+          />
+          <div class="product-info">
+            <h3>Chicken Masala</h3>
+            <p class="price">$20.95</p>
+            <p class="description">
+              Chicken Fajitas served with rice and beans, tortillas, guacamole,
+              salsa, and sour cream.
+            </p>
+            <button class="add-to-order">Add to Order</button>
+            <button class="customize">Customize</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h2>1 Item</h2>
+        <button class="close-cart" id="close-cart">Close</button>
+      </div>
+      <div class="cart-item">
+        <img src="{}" alt="Chicken Masala" class="cart-item-image" />
+        <div class="cart-item-info">
+          <h3>Chicken Masala</h3>
+          <p>$20.95</p>
+          <div class="quantity-control">
+            <button class="quantity-btn">-</button>
+            <input type="number" value="1" min="1" />
+            <button class="quantity-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="cart-total">
+        <p>Total: <span>$20.95</span></p>
+      </div>
+      <button class="place-order">Place Order</button>
+    </aside>
+
     <!-- Javascript Added -->
     <script src="script.js"></script>
   </body>
