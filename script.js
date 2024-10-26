@@ -1,3 +1,94 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const addToOrderButtons = document.querySelectorAll(".add-to-order")
+  const cartSidebar = document.getElementById("cart-sidebar")
+  const cartItemsContainer = document.querySelector(".cart-item")
+  const cartCount = document.getElementById("cart-count")
+  const cartHeader = document.querySelector(".cart-header h2")
+  let cart = []
+
+  addToOrderButtons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const productCard = button.closest(".product-card")
+      const productTitle = productCard.querySelector(".product-title").innerText
+      const productPrice = parseFloat(
+        productCard.querySelector(".price span").innerText
+      )
+
+      // Check if item is already in the cart
+      if (!cart.find((item) => item.title === productTitle)) {
+        // Add item to the cart
+        const cartItem = {
+          title: productTitle,
+          price: productPrice,
+          quantity: 1,
+        }
+        cart.push(cartItem)
+
+        // Update cart display
+        renderCartItems()
+        updateCartCount()
+
+        // Disable the button
+        button.disabled = true
+        button.classList.add("disabled")
+        button.innerText = "Added to Cart"
+      }
+    })
+  })
+
+  function renderCartItems() {
+    cartItemsContainer.innerHTML = "" // Clear previous items
+
+    cart.forEach((item) => {
+      const cartItemElement = document.createElement("div")
+      cartItemElement.classList.add("cart-item-info")
+      cartItemsContainer.appendChild(cartItemElement)
+    })
+
+    updateTotal()
+  }
+
+  //
+
+  //
+
+  function updateCartCount() {
+    cartCount.innerText = cart.length
+    cartHeader.innerText = `${cart.length} Item${cart.length > 1 ? "s" : ""}`
+  }
+
+  function updateTotal() {
+    const total = cart.reduce(
+      (acc, item) => acc + item.price * item.quantity,
+      0
+    )
+    document.querySelector(".cart-total span").innerText = `$${total.toFixed(
+      2
+    )}`
+  }
+
+  window.updateQuantity = (title, amount) => {
+    const item = cart.find((item) => item.title === title)
+    if (item) {
+      item.quantity += amount
+      if (item.quantity < 1) item.quantity = 1
+      renderCartItems()
+      updateTotal()
+    }
+  }
+
+  // Open and close cart sidebar
+  document
+    .querySelector(".cart-icon-container")
+    .addEventListener("click", () => {
+      cartSidebar.classList.toggle("open")
+    })
+
+  document.getElementById("close-cart").addEventListener("click", () => {
+    cartSidebar.classList.remove("open")
+  })
+})
+
 // For all button
 const allBtn = document.getElementsByClassName("add-to-order")
 
