@@ -68,6 +68,19 @@ for (const btn of allBtn) {
     // Append the complete cart item div to the cart sidebar
     cartSidebar.appendChild(cartItemDiv)
 
+    // Create and append delete button
+    const deleteButton = document.createElement("button")
+    deleteButton.classList.add("delete-btn")
+    deleteButton.innerHTML = `
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+    <path d="M5.5 5.5A.5.5 0 0 1 6 5h4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H6a.5.5 0 0 1-.5-.5v-7zM4.118 4.5 4 4.382V4.5H3V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v.5h-1v-.118l-.118-.118H4.118zM6.5 1a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1V2h-3V1z"/>
+  </svg>`
+    deleteButton.addEventListener("click", function () {
+      cartItemDiv.remove() // Remove the item from the cart
+      updateCartTotal() // Update the cart total after deletion
+    })
+    cartItemDiv.appendChild(deleteButton)
+
     // Update or add the cart total and place order button if not already present
     if (!document.querySelector(".cart-total")) {
       const cartTotalDiv = document.createElement("div")
