@@ -123,6 +123,12 @@ body {
   height: 100%; /* Ensures cards have the same height */
 }
 
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
 .product-card .badge {
   position: absolute;
   top: 10px;
@@ -132,6 +138,8 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 12px;
+  transform: rotate(-45deg); /* Rotates the badge at an angle */
+  transform-origin: left top; /* Ensures rotation starts from the top-left corner */
 }
 
 .product-image {
@@ -253,6 +261,13 @@ body {
   margin-top: 20px;
   cursor: pointer;
   border-radius: 5px;
+}
+
+/* This is the disabled color */
+.disabled {
+  background-color: #ddd;
+  color: #666;
+  cursor: not-allowed;
 }
 
 /* Media Queries for Responsiveness */
