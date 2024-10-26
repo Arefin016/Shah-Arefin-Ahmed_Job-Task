@@ -123,6 +123,33 @@ for (const btn of allBtn) {
   })
 }
 
+// Function to update the cart total
+function updateCartTotal() {
+  const cartItems = document.querySelectorAll(".cart-item")
+  let total = 0
+
+  cartItems.forEach((item) => {
+    const priceText = item.querySelector("p").innerText // Get the price text
+    const quantity = parseInt(item.querySelector("input[type='number']").value) // Get the quantity
+    const price = parseFloat(priceText.replace("$", "")) // Convert to float
+    total += price * quantity // Calculate total price
+  })
+
+  // Update the total displayed in the cart
+  const totalPara = document.querySelector(".cart-total p span")
+  if (totalPara) {
+    totalPara.innerText = `$${total.toFixed(2)}` // Format the total
+  }
+}
+
+// Add event listener for the Place Order button
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("place-order")) {
+    const totalValue = updateCartTotal() // Update cart total
+    alert(`Total Order Value: $${totalValue.toFixed(2)}`) // Show total in alert
+  }
+})
+
 // Function to update cart total
 function updateCartTotal() {
   const cartItems = document.querySelectorAll(".cart-item")
@@ -149,6 +176,7 @@ function updateCartTotal() {
     totalPara.innerText = `$${total.toFixed(2)}`
   }
 }
+
 document.querySelectorAll(".add-to-order").forEach((button) => {
   button.addEventListener("click", function () {
     // Check if the item is already added
