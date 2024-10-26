@@ -50,32 +50,39 @@ body {
   align-items: center;
 }
 
-/* Navbar */
+/* This is the navbar start style */
+
 .navbar {
   background-color: #ff4d4d;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center; /* Center all navbar items horizontally */
   padding: 15px;
   color: white;
   align-items: center;
+  gap: 50px; /* Add some spacing between items */
 }
 
 .navbar nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
+  justify-content: center; /* Center items within the nav */
+  padding: 0;
+  margin: 0;
 }
 
-.navbar ul li {
-  display: inline;
+.navbar > div,
+.profile,
+.order-now {
+  /* Additional styling to keep logo, nav, cart, and button aligned */
+  display: flex;
+  align-items: center;
 }
 
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
+.logo {
+  height: 40px; /* Adjust to fit your design */
 }
-
 .order-now {
   background-color: white;
   color: #ff4d4d;
@@ -84,6 +91,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
 }
+/* This is the navbar end style */
 
 /* Main Content */
 .title {
@@ -104,11 +112,15 @@ body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
   width: 100%;
-  max-width: 300px; /* Ensure max width for smaller screens */
   position: relative;
   text-align: center;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensures cards have the same height */
 }
 
 .product-card .badge {
@@ -124,7 +136,8 @@ body {
 
 .product-image {
   width: 100%;
-  height: auto;
+  height: 200px;
+  object-fit: cover;
   border-bottom: 1px solid #ddd;
 }
 
