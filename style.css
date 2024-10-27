@@ -56,18 +56,18 @@ body {
   background-color: #ff4d4d;
   width: 100%;
   display: flex;
-  justify-content: center; /* Center all navbar items horizontally */
+  justify-content: center;
   padding: 15px;
   color: white;
   align-items: center;
-  gap: 50px; /* Add some spacing between items */
+  gap: 50px;
 }
 
 .navbar nav ul {
   list-style: none;
   display: flex;
   gap: 20px;
-  justify-content: center; /* Center items within the nav */
+  justify-content: center;
   padding: 0;
   margin: 0;
 }
@@ -75,7 +75,6 @@ body {
 .navbar > div,
 .profile,
 .order-now {
-  /* Additional styling to keep logo, nav, cart, and button aligned */
   display: flex;
   align-items: center;
 }
@@ -104,7 +103,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 20px;
-  flex-wrap: wrap; /* Ensure the grid wraps on smaller screens */
+  flex-wrap: wrap;
   padding: 20px;
 }
 
@@ -120,7 +119,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100%; /* Ensures cards have the same height */
+  height: 100%;
 }
 
 .product-card:hover {
@@ -138,8 +137,8 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 12px;
-  transform: rotate(-45deg); /* Rotates the badge at an angle */
-  transform-origin: left top; /* Ensures rotation starts from the top-left corner */
+  transform: rotate(-45deg);
+  transform-origin: left top;
 }
 
 .product-image {
@@ -195,7 +194,7 @@ body {
   position: fixed;
   top: 0;
   right: -400px;
-  width: 370px;
+  width: 400px;
   height: 100%;
   background-color: #ff4d4d;
   color: white;
@@ -268,6 +267,45 @@ body {
   background-color: #ddd;
   color: #666;
   cursor: not-allowed;
+}
+/*  */
+/* Cart items container */
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.quantity-control {
+  margin-left: 5px;
+}
+
+/* Each cart item */
+.cart-item-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.cart-item-info h3 {
+  margin-right: 8px;
+}
+
+/* Image styling */
+.cart-item-image {
+  width: 50px;
+  height: auto;
+  margin-right: 5px;
+  margin-bottom: 0.5rem;
+}
+
+/* Cart total styling */
+.cart-total {
+  margin-top: 0.5rem;
+  text-align: center;
 }
 
 /* Media Queries for Responsiveness */
